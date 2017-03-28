@@ -20,7 +20,7 @@ mongoose.connection.on('error', () => {
   process.exit();
 });
 
-
+// Expose the app module
 module.exports = {
     app
 };
