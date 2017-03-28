@@ -38,7 +38,6 @@
     "method-override": "^2.3.8",
     "mongoose": "^4.9.2",
     "morgan": "^1.7.0",
-    "network-address": "^1.1.2",
     "passport": "0.3.2",
     "passport-local": "^1.0.0",
     "request": "^2.74.0",

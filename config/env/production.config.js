@@ -1,7 +1,5 @@
 'use strict';
 
-const host = require('network-address')();
-
 module.exports = {
     port: process.env.PORT || process.env.NODE_PORT || 4000,
     bcrypt: {
