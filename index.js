@@ -31,7 +31,7 @@ server(app);
 function listen () {
     if (app.get('env') === 'test') return;
     app.listen(config.port);
-    console.log(`🔥 Address Book is listen on Port ${config.port}`);
+    console.log(`🔥 Address Book is listening on Port ${config.port}`);
 }
 
 // Run Address Book
