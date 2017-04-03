@@ -32,7 +32,7 @@ This will checkout the shared submodule folder to the commit specified for it.
 
 - Install all npm packages by running:
 ```
-npm install or preferrably yarn
+npm install or yarn
 ```
 
 ### Test The App
