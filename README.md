@@ -5,10 +5,9 @@
 |  Folder/File |  Description |
 |---|---|
 |  config/ | Config files for setting environment variables  |
-|  server/ | Feature tests for user acceptance  |
+|  app/ | Controllers, Models and routes  |
 |  test/ | Feature tests for user acceptance  |
-|  src | Entry point to the application where all react routes are loaded |
-|  index.js/ |  server for running application on different routes and setting cookies |
+|  index.js/ |  server for running application  |
 
 ## Getting Started
 
