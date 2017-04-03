@@ -6,7 +6,7 @@
 |---|---|
 |  config/ | Config files for setting environment variables  |
 |  app/ | Controllers, Models and routes  |
-|  test/ | Feature tests for user acceptance  |
+|  test/ | Integration tests for user acceptance  |
 |  index.js/ |  server for running application  |
 
 ## Getting Started
@@ -48,4 +48,4 @@ npm install or yarn
  yarn start or npm start
 ```
 
-- Log in using one of the test accounts e.g. `test-email@gmail.com`, password is `password`.
+- SignUp using email and password cerdentials e.g. `test-email@gmail.com`, and `password`.
