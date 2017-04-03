@@ -16,16 +16,22 @@ const passport = require('passport');
 const fs = require('fs');
 
 const helmet = require('helmet');
+const boom = require('express-boom');
 const winston = require('winston');
 
 const config = require('./');
 const loggerInit = require('./logger');
 const logDirectory = './log';
 
+const routes = require('../app/routes');
+
 module.exports = (app) => {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
+
+    // Initialize boom
+    app.use(boom());
 
     app.use(bodyParser.json());
     app.use(methodOverride(function (req, res) {
@@ -78,6 +84,9 @@ module.exports = (app) => {
 
     // Bootstrap local passport config
     require('./passport')();
+
+    // Route to the users handler
+    routes(app);
 
     app.use((req, res, next) => {
         let err = new Error('Not Found');

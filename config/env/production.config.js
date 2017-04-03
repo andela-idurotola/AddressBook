@@ -5,10 +5,9 @@ module.exports = {
     bcrypt: {
         hashRounds: 10
     },
-    dbUrl: 'mongodb://localhost:27017/address',
+    dbUrl: 'mongodb://localhost:27017/address_book',
     auth: {
-        cookieName: 'auth_token',
         signKey: 'c88afe1f6aa4b3c7982695ddd1cdd200bcd96662',
-        tokenTTL: 1000 * 60 * 60 * 24 * 30 // 30 days
+        tokenTTL: 1000 * 60 * 60 * 24 * 1 // 1 days
     }
 };
