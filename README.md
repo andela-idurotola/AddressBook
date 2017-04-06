@@ -27,8 +27,6 @@ After cloning the [repository](https://github.com/andela-idurotola/AddressBook.g
 cd AddressBook
 ```
 
-This will checkout the shared submodule folder to the commit specified for it.
-
 - Set up the environment variable: 
 You can create a new firebase project @ [Firebase](https://firebase.google.com/docs/database/web/start):
 
