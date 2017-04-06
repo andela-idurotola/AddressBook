@@ -90,4 +90,16 @@ describe('POST signin a user', function() {
     });
 });
 
+describe('GET logout a user', function() {
+    it('should return 200 and logout a user', function(done) {
+        request(app)
+            .get('/api/user/logout')
+            .expect(200)
+            .then(res => {
+                expect(res.body.message).to.be('signout successful');
+                done();
+            });
+    });
+});
+
 
