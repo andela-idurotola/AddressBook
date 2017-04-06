@@ -1,11 +1,11 @@
 'use strict';
 
+require('./setup'); 
+
 const request = require('supertest');
 const expect = require('expect.js');
 const factory = require('./factories').factory;
 const app = require('../index.js').app;
-
-require('./setup');
 
 describe('POST signup a user', function() {
     it('should return a 400 for password mismatch', function(done) {

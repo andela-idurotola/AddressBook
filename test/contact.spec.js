@@ -1,13 +1,13 @@
 'use strict';
 
+require('./setup');
+
 const request = require('supertest');
 const expect = require('expect.js');
 const factory = require('./factories').factory;
 const jsonwebtoken = require('jsonwebtoken');
 const app = require('../index.js').app;
 const config = require('../config')
-
-require('./setup');
 
 describe('POST create a contact', function() {
     let user;
