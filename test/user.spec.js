@@ -5,8 +5,10 @@ const expect = require('expect.js');
 const factory = require('./factories').factory;
 const app = require('../index.js').app;
 
+require('./setup');
+
 describe('POST signup a user', function() {
-    it('should return an 400 for password mismatch', function(done) {
+    it('should return a 400 for password mismatch', function(done) {
         request(app)
             .post('/api/user/signup')
             .send({
@@ -21,7 +23,7 @@ describe('POST signup a user', function() {
             });
     });
 
-    it('should return an 400 for empty credentials', function(done) {
+    it('should return a 400 for empty credentials', function(done) {
         request(app)
             .post('/api/user/signup')
             .send({
@@ -38,7 +40,7 @@ describe('POST signup a user', function() {
             });
     });
 
-    it('should return an 200 for correct credentials', function(done) {
+    it('should return a 200 for correct credentials', function(done) {
         request(app)
             .post('/api/user/signup')
             .send({

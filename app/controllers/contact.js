@@ -1,12 +1,8 @@
 'use strict';
 
-const config  = require('../../config');
 const pick = require('lodash.pick');
 const find = require('lodash.find');
-const _firebase = require('firebase');
-
-const firebaseDb = _firebase
-    .initializeApp(config.firebase).database();
+const contactBase = require('../models/contactbase').contactsDb;
 
 exports.create = (req, res, next) => {
     req.assert('name', 'Name cannot be blank').notEmpty();
@@ -26,7 +22,7 @@ exports.create = (req, res, next) => {
         ['name', 'email', 'address', 'phoneNumber']
     );
 
-    let contactsRef = firebaseDb.ref(`/users/${req.user.id}/contacts`);
+    let contactsRef = contactBase.ref(`/users/${req.user.id}/contacts`);
     
     contactsRef.once('value', (dataSnapshot) => {
         let allContacts = dataSnapshot.val() || [];

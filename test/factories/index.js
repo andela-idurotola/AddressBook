@@ -1,5 +1,4 @@
 'use strict';
-require('../setup');
 
 const f = require('factory-girl');
 const factory = f.factory;
@@ -10,6 +9,7 @@ factory.setAdapter(adapter);
 
 // User Factory
 factory.define('User', User, {
+    id: '1',
     email: factory.chance('email', { domain: "example.com" }),
     password: 'some-password',
 });

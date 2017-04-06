@@ -3,6 +3,9 @@ process.env.NODE_ENV = 'test';
 const config = require('../../config');
 const DatabaseCleaner = require('database-cleaner'); 
 const databaseCleaner = new DatabaseCleaner('mongodb');
+const contactBase =  require('../../app/models/contactbase').contactsDb;
+
+let contactsRef = contactBase.ref(`/users/1/contacts`).remove();
 
 const connect = require('mongodb').connect;
 

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --reporter spec --timeout 5000"
+    "test": "mocha --reporter spec --timeout 10000"
   },
   "author": "Durotola Iyanu-Tomiwa",
   "license": "UNLICENSED",
