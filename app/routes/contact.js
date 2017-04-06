@@ -1,8 +1,8 @@
-const contactCtrl = require('../controllers/contact');
-const requiresLogin = require('../controllers/auth').authenication;
+const contactController = require('../controllers/contact');
+const authorization = require('../controllers/authorization');
 
 module.exports = (app) => {
     'use strict';
     app.post('/api/contacts', 
-        requiresLogin, contactCtrl.create);
+        authorization.requiresLogin, contactController.create);
 };

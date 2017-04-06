@@ -2,10 +2,16 @@
 
 const bcrypt = require('bcrypt-nodejs');
 const mongoose = require('mongoose');
+const config  = require('../../config');
 
+/* 
+    The user profile can be updated to
+    include more details of the user after signup 
+*/
 const userSchema = new mongoose.Schema({
     email: { type: String, unique: true },
     password: String,
+    contactsUrl: String,
 
     profile: {
         name: String,
@@ -19,7 +25,7 @@ userSchema.pre('save', function (next) {
     const user = this;
     if (!user.isModified('password')) return next();
 
-    bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.genSalt(config.bcrypt.hashRounds, (err, salt) => {
         if (err) return next(err);
 
         bcrypt.hash(user.password, salt, null, (err, hash) => {

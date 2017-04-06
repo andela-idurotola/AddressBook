@@ -6,7 +6,7 @@
 |---|---|
 |  config/ | Config files for setting environment variables  |
 |  app/ | Controllers, Models and routes  |
-|  test/ | Integration tests for user acceptance  |
+|  test/ | Integration tests |
 |  index.js/ |  server for running application  |
 
 ## Getting Started
@@ -28,6 +28,22 @@ cd AddressBook
 ```
 
 This will checkout the shared submodule folder to the commit specified for it.
+
+- Set up the environment variable: 
+You can create a new firebase project @ [Firebase](https://firebase.google.com/docs/database/web/start):
+
+|  Variable Name |  Description |
+|---|---|
+|  NODE_PORT or PORT | - port to run the server defaults to 4000 |
+|  DATABASE_URL | mongodb database url  |
+|  AUTH_SIGN_KEY | a hash to use as a sign key - could be any lenght  |
+|  FIREBASE_API_KEY | provided by firebase  |
+|  FIREBASE_AUTH_DOMAIN | provided by firebase |
+|  FIREBASE_DB_URL | provided by firebase |
+|  FIREBASE_PROJECT_ID | provided by firebase |
+|  FIREBASE_STORAGE_BUCKET | provided by firebase |
+|  FIREBASE_PFIREBASE_MSG_SENDER_IDROJECT_ID | provided by firebase |
+
 
 - Install all npm packages by running:
 ```
