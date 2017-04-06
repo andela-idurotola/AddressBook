@@ -42,7 +42,7 @@ You can create a new firebase project @ [Firebase](https://firebase.google.com/d
 |  FIREBASE_DB_URL | provided by firebase |
 |  FIREBASE_PROJECT_ID | provided by firebase |
 |  FIREBASE_STORAGE_BUCKET | provided by firebase |
-|  FIREBASE_PFIREBASE_MSG_SENDER_IDROJECT_ID | provided by firebase |
+|  FIREBASE_MSG_SENDER_ID | provided by firebase |
 
 
 - Install all npm packages by running:
