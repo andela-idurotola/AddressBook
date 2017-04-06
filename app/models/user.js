@@ -11,8 +11,7 @@ const config  = require('../../config');
 const userSchema = new mongoose.Schema({
     email: { type: String, unique: true },
     password: String,
-    contactsUrl: String,
-
+    
     profile: {
         name: String,
         gender: String,

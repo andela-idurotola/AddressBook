@@ -13,7 +13,7 @@ exports.login = (req, res, next) => {
             logger.error(err, ' signin-error');
             return res.boom.badRequest('Unable to sign in!');
         }
-        let userObject = pick(user, ['id', 'email', 'name']);
+        let userObject = pick(user, ['id', 'email']);
 
         userObject.token = auth.sign(user);
         return res.status(200).json(userObject);
