@@ -1,6 +1,6 @@
 'use strict';
 
-require('./setup');
+const dbCleaner = require('./setup'); 
 
 const request = require('supertest');
 const expect = require('expect.js');
@@ -10,19 +10,16 @@ const app = require('../index.js').app;
 const config = require('../config')
 
 describe('POST create a contact', function() {
-    let user;
+    let user = {
+        id: '1',
+        email: 'test_user@example.com',
+        password: 'test-password'
+    }
 
     beforeEach(function(done) {
-        user = {
-            id: '1',
-            email: 'test_user@example.com',
-            password: 'test-password'
-        }
-
-
-        factory.create('User', user).then(()=> {
+        dbCleaner.cleanDatabase(() => {
             done();
-        }).catch(done);
+        });
     });
 
     it('should create a contact to firebase', function(done) {

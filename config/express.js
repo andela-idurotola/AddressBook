@@ -44,14 +44,6 @@ module.exports = (app) => {
 
     app.use(expressValidator());
     app.use(cookieParser());
-    app.use(cookieSession({ secret: 'secret' }));
-
-    app.use(session({
-		secret: 'secret',
-		proxy: true,
-		resave: true,
-		saveUninitialized: true
-  	}));
     
     // Use passport
     app.use(passport.initialize());
