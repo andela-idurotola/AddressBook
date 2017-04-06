@@ -1,5 +1,8 @@
 'use strict';
 
+// Load the possible environment files
+require('dotenv').config({silent: true});
+
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config');
