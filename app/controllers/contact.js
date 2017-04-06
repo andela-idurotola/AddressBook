@@ -29,7 +29,7 @@ exports.create = (req, res, next) => {
     let contactsRef = firebaseDb.ref(`/users/${req.user.id}/contacts`);
     
     contactsRef.once('value', (dataSnapshot) => {
-        let allContacts  = dataSnapshot.val() || [];
+        let allContacts = dataSnapshot.val() || [];
 
         let isDuplicateDetail=  find(allContacts, (c) => {
             return c.email === newContact.email || 
@@ -51,8 +51,7 @@ exports.create = (req, res, next) => {
 
         contactsRef.update(contact, (err) => {
             if (err) return res.boom.notImplemented(
-                'Could not create a new contact',
-                err
+                'Could not create a new contact'
             );
 
             return res.status(200).json({

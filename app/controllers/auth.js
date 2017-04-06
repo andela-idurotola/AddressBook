@@ -4,6 +4,11 @@ const config = require('../../config');
 module.exports = {
     authentication: (req, res, next) => {
         'use strict';
+
+        /*
+            The token is passed through the 
+            x-access-token header on every request made.
+        */
         const token = req.headers['x-access-token'];
         jsonwebtoken.verify(token, config.auth.signKey, (err, decoded) => {
             if (!err) {

@@ -28,6 +28,10 @@ cd AddressBook
 ```
 
 - Set up the environment variable: 
+In the root folder
+```
+touch .env
+```
 You can create a new firebase project @ [Firebase](https://firebase.google.com/docs/database/web/start):
 
 |  Variable Name |  Description |
