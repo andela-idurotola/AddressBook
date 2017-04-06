@@ -34,9 +34,9 @@ You can create a new firebase project @ [Firebase](https://firebase.google.com/d
 
 |  Variable Name |  Description |
 |---|---|
-|  NODE_PORT or PORT | - port to run the server defaults to 4000 |
+|  NODE_PORT or PORT | port to run the server defaults to 4000 |
 |  DATABASE_URL | mongodb database url  |
-|  AUTH_SIGN_KEY | a hash to use as a sign key - could be any lenght  |
+|  AUTH_SIGN_KEY | a hash to use as a sign key - could be any length  |
 |  FIREBASE_API_KEY | provided by firebase  |
 |  FIREBASE_AUTH_DOMAIN | provided by firebase |
 |  FIREBASE_DB_URL | provided by firebase |
