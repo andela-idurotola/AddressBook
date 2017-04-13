@@ -4,11 +4,8 @@ const logger = require('morgan');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
 const morgan = require('morgan');
 
-const mongoose = require('mongoose');
-const path = require('path');
 const expressValidator = require('express-validator');
 const FileStreamRotator = require('file-stream-rotator');
 const methodOverride = require('method-override');
