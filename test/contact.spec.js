@@ -67,4 +67,42 @@ describe('POST create a contact', function() {
                 done();
             });
     });
+
+    describe('POST a contact', function(done) {
+        // Create a token to be used for authenticaion 
+        let token = jsonwebtoken.sign({
+            id: user.id,
+            email: user.email
+        }, config.auth.signKey, {expiresIn: config.auth.tokenTTL});
+
+        let duplicateContact = {
+            name: 'test-contact-name',
+            email: `${Date.now()}@example.com`,
+            address: 'test-contact-address',
+            phoneNumber: `${Date.now()}`
+        };
+
+        beforeEach(function(done) {
+            request(app)
+                .post('/api/contacts')
+                .set('x-access-token', token)
+                .send(duplicateContact)
+                .expect(200, done);
+        });
+
+        it('should return 409 for a duplicate contact', function(done) {
+            
+            request(app)
+                .post('/api/contacts')
+                .set('x-access-token', token)
+                .send(duplicateContact)
+                .expect(409)
+                .then(res => {
+                    expect(JSON.parse(res.error.text).message).to.be('This contact\'s email or phone number is a duplicate.');
+                    done();
+                });
+        });
+    });
 });
+
+
