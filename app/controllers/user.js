@@ -3,21 +3,14 @@
 const User = require('../models/user');
 const auth = require('./auth');
 const pick = require('lodash.pick');
-const passport = require('passport');
 
 exports.login = (req, res, next) => {
     let user = req.user;
 
-    req.logIn(user, (err) => {
-        if (err) {
-            logger.error(err, ' signin-error');
-            return res.boom.badRequest('Unable to sign in!');
-        }
-        let userObject = pick(user, ['id', 'email']);
+    let userObject = pick(user, ['id', 'email']);
 
-        userObject.token = auth.sign(user);
-        return res.status(200).json(userObject);
-    });
+    userObject.token = auth.sign(user);
+    return res.status(200).json(userObject);
 }
 
 exports.signin = (req, res, next) => {
@@ -28,20 +21,31 @@ exports.signin = (req, res, next) => {
     const errors = req.validationErrors();
     if (errors) return res.status(400).send(errors);
 
-    passport.authenticate('local', (err, user, info) => {
-        if (err) {
-            logger.error(err, ' signin-error');
-            return res.boom.badRequest('Unable to sign in!');
-        }
+    const email = req.body.email;
+    const password = req.body.password;
 
+    User.findOne({ email: email.toLowerCase() })
+    .then(user => {
         if (!user) {
-            logger.warn(info, ' signin-warning');
-            return res.status(401).json({message: info.message});
+            return res.boom.badRequest(`Email ${email} not found.`);
         }
 
-        req.user = user;
-        return next();
-    })(req, res, next);
+        user.comparePassword(password, (err, isMatch) => {
+            if (err) return done(err);
+            if (isMatch) {
+                req.user = user;
+                return next();
+            } 
+
+            logger.warn('Invalid username or password');
+            return res.boom.unauthorized('Invalid email or password.');
+        });
+    })
+    .catch(err => {
+        let findUserError = 'Account does not exist.';
+        logger.error(err, ' signing-error');
+        return res.boom.notImplemented(findUserError);
+    });
 }
 
 exports.signup = (req, res, next) => {
@@ -91,6 +95,6 @@ exports.signup = (req, res, next) => {
 }
 
 exports.logout = (req, res) => {
-    req.logout();
+    // Simply remove the token from the client side.
     res.status(200).json({message: 'signout successful'});
 };

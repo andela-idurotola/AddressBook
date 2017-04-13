@@ -1,7 +1,6 @@
 'use strict';
 
 const logger = require('morgan');
-const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
@@ -9,7 +8,6 @@ const morgan = require('morgan');
 const expressValidator = require('express-validator');
 const FileStreamRotator = require('file-stream-rotator');
 const methodOverride = require('method-override');
-const passport = require('passport');
 const fs = require('fs');
 
 const helmet = require('helmet');
@@ -41,10 +39,6 @@ module.exports = (app) => {
 
     app.use(expressValidator());
     app.use(cookieParser());
-    
-    // Use passport
-    app.use(passport.initialize());
-    app.use(passport.session());
 
     // Use helmet to secure Express headers
     app.use(helmet.frameguard());
@@ -70,9 +64,6 @@ module.exports = (app) => {
     }
 
     app.use(morgan('combined', {stream: accessLogStream}));
-
-    // Bootstrap local passport config
-    require('./passport')();
 
     // Route to the users handler
     routes(app);
