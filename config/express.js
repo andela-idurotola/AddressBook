@@ -2,7 +2,6 @@
 
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 
 const expressValidator = require('express-validator');
@@ -38,7 +37,6 @@ module.exports = (app) => {
 	}));
 
     app.use(expressValidator());
-    app.use(cookieParser());
 
     // Use helmet to secure Express headers
     app.use(helmet.frameguard());
