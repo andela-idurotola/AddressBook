@@ -67,3 +67,4 @@ npm install or yarn
 ```
 
 - SignUp using email and password cerdentials e.g. `test-email@gmail.com`, and `password`.
+- Logout by simply removing the token from the client side.

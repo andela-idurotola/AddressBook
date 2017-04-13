@@ -96,5 +96,6 @@ exports.signup = (req, res, next) => {
 
 exports.logout = (req, res) => {
     // Simply remove the token from the client side.
+    // The might not be neccesary once token is removed from client side
     res.status(200).json({message: 'signout successful'});
 };
